@@ -30,3 +30,7 @@ app.get("/api/hello", function (req, res) {
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
+//api get date in unix
+app.get("/api/:date?", function (req, res) {
+  res.json({"Unix":req.params.date.now(), "utc":req.params.date.getUTCDate()});
+});
